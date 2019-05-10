@@ -1,0 +1,21 @@
+Build
+Win32
+.idea/
+cmake-build-*/
+.vs/
+build/
+*.bz2
+*.zip
+*.tar
+*.rar
+*.kdev4
+*.gpg
+*.user
+*.bak
+
+foo.*
+id_rsa
+id_rsa.github
+
+# VS2017 CMake support
+CMakeSettings.json
