@@ -40,7 +40,7 @@ target_include_directories(${APP_NAME}
 
 ###
 add_executable (${PROJECT_NAME}-client
-        chat_client.cpp
+        go_game_client.cpp
         )
 target_link_libraries (${PROJECT_NAME}-client
         boost_system

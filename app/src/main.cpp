@@ -17,18 +17,18 @@ typedef std::deque<chat_message> chat_message_queue;
 
 //----------------------------------------------------------------------
 
-class chat_participant {
+class game_participant {
 public:
-    virtual ~chat_participant() {}
+    virtual ~game_participant() {}
 
     virtual void deliver(const chat_message &msg) = 0;
 };
 
-typedef std::shared_ptr<chat_participant> chat_participant_ptr;
+typedef std::shared_ptr<game_participant> chat_participant_ptr;
 
 //----------------------------------------------------------------------
 
-class chat_room {
+class game_room {
 public:
     void join(chat_participant_ptr participant) {
         participants_.insert(participant);
@@ -59,11 +59,11 @@ private:
 
 //----------------------------------------------------------------------
 
-class chat_session
-        : public chat_participant,
-          public std::enable_shared_from_this<chat_session> {
+class game_session
+        : public game_participant,
+          public std::enable_shared_from_this<game_session> {
 public:
-    chat_session(tcp::socket socket, chat_room &room)
+    game_session(tcp::socket socket, game_room &room)
             : socket_(std::move(socket)),
               room_(room) {
     }
@@ -127,16 +127,16 @@ private:
     }
 
     tcp::socket socket_;
-    chat_room &room_;
+    game_room &room_;
     chat_message read_msg_;
     chat_message_queue write_msgs_;
 };
 
 //----------------------------------------------------------------------
 
-class chat_server {
+class game_server {
 public:
-    chat_server(boost::asio::io_context &io_context,
+    game_server(boost::asio::io_context &io_context,
                 const tcp::endpoint &endpoint)
             : acceptor_(io_context, endpoint) {
         do_accept();
@@ -147,7 +147,7 @@ private:
         acceptor_.async_accept(
                 [this](boost::system::error_code ec, tcp::socket socket) {
                     if (!ec) {
-                        std::make_shared<chat_session>(std::move(socket), room_)->start();
+                        std::make_shared<game_session>(std::move(socket), room_)->start();
                     }
 
                     do_accept();
@@ -155,7 +155,7 @@ private:
     }
 
     tcp::acceptor acceptor_;
-    chat_room room_;
+    game_room room_;
 };
 
 //----------------------------------------------------------------------
@@ -163,13 +163,13 @@ private:
 int main(int argc, char *argv[]) {
     try {
         if (argc < 2) {
-            std::cerr << "Usage: chat_server <port> [<port> ...]\n";
+            spdlog::error("Usage: go-game-server <port> [<port> ...]");
             return 1;
         }
 
         boost::asio::io_context io_context;
 
-        std::list<chat_server> servers;
+        std::list<game_server> servers;
         for (int i = 1; i < argc; ++i) {
             tcp::endpoint endpoint(tcp::v4(), std::atoi(argv[i]));
             spdlog::info("listening on tcp://{}:{}", endpoint.address().to_string(), endpoint.port());

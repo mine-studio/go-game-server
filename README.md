@@ -20,8 +20,16 @@ cmake ..
 make -j8
 ```
 
-## Start
+## Run
+
+* Server
 
 ```bash
-./cmake-build-debug/app/go-server-app 9527
+./cmake-build-debug/app/go-game-server 9527
+```
+
+* Client
+
+```bash
+./cmake-build-debug/app/go-game-client localhost 9527
 ```

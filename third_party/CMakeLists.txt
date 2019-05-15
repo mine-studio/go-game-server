@@ -9,6 +9,8 @@ set (SPDLOG_INCLUDE_PATH "${SPDLOG_PATH}/include")
 # json --------------------------------------------------------------
 set (JSON_PATH "${THIRD_PARTY_PATH}/json")
 set (JSON_INCLUDE_PATH "${JSON_PATH}/include")
+set(JSON_BuildTests OFF)
+set(JSON_Install OFF)
 add_subdirectory(${JSON_PATH})
 #find_package(nlohmann_json REQUIRED)
 
