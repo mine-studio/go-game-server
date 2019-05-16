@@ -1,9 +1,9 @@
-#ifndef CHAT_MESSAGE_HPP
-#define CHAT_MESSAGE_HPP
+#pragma once
 
 #include <cstdio>
 #include <cstdlib>
 #include <cstring>
+#include <queue>
 
 class chat_message {
 public:
@@ -70,4 +70,4 @@ private:
     std::size_t body_length_;
 };
 
-#endif // CHAT_MESSAGE_HPP
+typedef std::deque<chat_message> chat_message_queue;
