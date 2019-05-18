@@ -3,6 +3,8 @@
 #include <memory>
 #include <boost/asio.hpp>
 using boost::asio::ip::tcp;
+using animations = std::vector<std::string>;
+
 
 class game_session
         : public game_participant,
@@ -24,6 +26,10 @@ public:
         if (!write_in_progress) {
             do_write();
         }
+    }
+
+    animations move() {
+        return animations({});
     }
 
 private:

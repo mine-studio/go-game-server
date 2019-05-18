@@ -36,6 +36,7 @@ target_include_directories(${APP_NAME}
         PUBLIC
         ${PROTOBUF_INCLUDE_DIRS}
         ${proto_include_dir}
+        include/
         )
 
 ###

@@ -10,9 +10,12 @@
 #include <boost/asio.hpp>
 #include <spdlog/spdlog.h>
 
+#include <game_session.hpp>
+using boost::asio::ip::tcp;
+
 class game_server {
 public:
-    game_server(boost::asio::io_context &io_context,
+    explicit game_server(boost::asio::io_context &io_context,
                 const tcp::endpoint &endpoint)
             : acceptor_(io_context, endpoint) {
         do_accept();

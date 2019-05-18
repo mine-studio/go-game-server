@@ -2,9 +2,15 @@
 
 #include <set>
 #include <game_participant.hpp>
+#include <game_board.hpp>
 
 class game_room {
 public:
+    explicit game_room()
+        : board_() {
+        board_.print();
+    }
+
     void join(game_participant_ptr participant) {
         participants_.insert(participant);
         for (auto msg: recent_msgs_)
@@ -22,6 +28,8 @@ public:
 
         for (auto participant: participants_)
             participant->deliver(msg);
+
+        board_.print();
     }
 
 private:
@@ -30,6 +38,7 @@ private:
         max_recent_msgs = 100
     };
     chat_message_queue recent_msgs_;
+    game_board board_;
 };
 
 

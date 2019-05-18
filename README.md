@@ -1,6 +1,5 @@
-# Go Game server [![Build Status](https://travis-ci.org/mine-studio/go-game-server.svg?branch=master)](https://travis-ci.org/mine-studio/go-game-server)
+# Go Game(围棋) Server [![Build Status](https://travis-ci.org/mine-studio/go-game-server.svg?branch=master)](https://travis-ci.org/mine-studio/go-game-server)
 
-围棋
 
 ## Dependencies
 
