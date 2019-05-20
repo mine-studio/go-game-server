@@ -9,7 +9,6 @@ enum class stone_color {
   empty = 0
 };
 
-
 class board_point {
 public:
   board_point() = delete;
@@ -19,15 +18,12 @@ public:
     col_no_ = col_number();
 
     switch (color_) {
-    case stone_color::white:
-      ascii_format_ = "0";
+    case stone_color::white:ascii_format_ = "0";
       break;
-    case stone_color::black:
-      ascii_format_ = "X";
+    case stone_color::black:ascii_format_ = "X";
       break;
     case stone_color::empty:
-    default:
-      ascii_format_ = ".";
+    default:ascii_format_ = ".";
     }
   }
 
@@ -94,15 +90,15 @@ public:
   std::string ascii_format_;
 
 private:
-    // start from 1
-    int row_number() {
-        return point_index_ / board_size_ + 1;
-    }
+  // start from 1
+  int row_number() {
+    return point_index_ / board_size_ + 1;
+  }
 
-    // start from 1
-    int col_number() {
-        return point_index_ % board_size_ + 1;
-    }
+  // start from 1
+  int col_number() {
+    return point_index_ % board_size_ + 1;
+  }
 };
 
 
