@@ -41,7 +41,7 @@ target_include_directories(${APP_NAME}
 
 ###
 add_executable(${PROJECT_NAME}-client
-        go_game_client.cpp
+        mine_go_client.cpp
         )
 target_link_libraries(${PROJECT_NAME}-client
         boost_system

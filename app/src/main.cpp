@@ -21,7 +21,7 @@ using boost::asio::ip::tcp;
 int main(int argc, char *argv[]) {
   try {
     if (argc < 2) {
-      spdlog::error("Usage: go-game-server <port> [<port> ...]");
+      spdlog::error("Usage: mine-go-server <port> [<port> ...]");
       return 1;
     }
 

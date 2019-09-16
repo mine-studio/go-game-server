@@ -1,4 +1,4 @@
-# Go Game(围棋) Server [![Build Status](https://travis-ci.org/mine-studio/go-game-server.svg?branch=master)](https://travis-ci.org/mine-studio/go-game-server)
+# Mine Go Game(围棋)[![Build Status](https://travis-ci.org/mine-studio/mine-go.svg?branch=master)](https://travis-ci.org/mine-studio/mine-go)
 
 
 ## Dependencies
@@ -24,11 +24,11 @@ make -j8
 * Server
 
 ```bash
-./cmake-build-debug/app/go-game-server 9527
+./cmake-build-debug/app/mine-go-server 9527
 ```
 
 * Client
 
 ```bash
-./cmake-build-debug/app/go-game-client localhost 9527
+./cmake-build-debug/app/mine-go-client localhost 9527
 ```

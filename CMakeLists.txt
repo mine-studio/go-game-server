@@ -1,6 +1,6 @@
 cmake_minimum_required (VERSION 3.3)
 
-project (go-game)
+project (mine-go)
 
 set_property (GLOBAL PROPERTY USE_FOLDERS ON)
 
