@@ -89,7 +89,17 @@ public:
 
     }
 
-    int board_size_;
+    // const int GM = 1
+    // const string AP("MineGo")
+    int board_size_; // SZ
+    int handicap_; // HA
+    int komi_; // KM
+    std::string date_; // DT
+    std::string player_black_; // PB
+    std::string player_white_; // PW
+    std::string game_name_; // GN
+    std::string game_place_; // PC
+    std::string result_; // RE
     std::map<int, stone_color> points_;
     int move_number_;
     stone_color to_move_;

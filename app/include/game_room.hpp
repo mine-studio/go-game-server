@@ -13,6 +13,7 @@ public:
     }
 
     void join(game_participant_ptr participant) {
+        spdlog::info("player joined");
         participants_.insert(participant);
         for (auto msg: recent_msgs_)
             participant->deliver(msg);
